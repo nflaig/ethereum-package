@@ -167,6 +167,16 @@ def get_config(
                 )
                 + "ethpandaops/dora:gloas-support"
             )
+        if network_params.eip7782_fork_epoch < constants.FAR_FUTURE_EPOCH:
+            IMAGE_NAME = (
+                docker_cache_params.url
+                + (
+                    docker_cache_params.dockerhub_prefix
+                    if docker_cache_params.enabled
+                    else ""
+                )
+                + "nflaig/dora:eip7782-support"
+            )
         if network_params.heze_fork_epoch < constants.FAR_FUTURE_EPOCH:
             IMAGE_NAME = (
                 docker_cache_params.url
